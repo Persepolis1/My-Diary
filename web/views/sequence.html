@@ -1,0 +1,10 @@
+<ul>
+    <li ng-repeat="item in finalSequence|groupby:'SEMESTER'">
+        {{item}}
+        <ul>
+            <li ng-repeat="inneritem in finalSequence | filter : item">{{inneritem.ID}} ---- {{inneritem.NAME}} - {{inneritem.CREDIT}}</li>
+        </ul>
+    </li>
+</ul>
+<h2>Total   Credits {{currentCredits}}</h2>
+<a href="index.html">generate new!</a>
