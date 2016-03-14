@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="jumbotron" ng-controller="HomeCtrl">
+        <h2>Sequence Planner for Software Engineers at Concordia</h2>
+        <p>Whether you are a new or existing student, planning a sequence can be difficult. We got you covered.</p>
+        <form ng-submit="submit()">
+            <h4>Select your status</h4>
+            <pre>{{radioModel1 || 'null'}}</pre>
+            <div class="btn-group">
+                <label class="btn btn-warning btn-outline" ng-model="radioModel1" uib-btn-radio="'New Student : Fresh from CEGEP'" ng-disabled="true">New Student</label>
+                <label class="btn btn-info btn-outline" ng-model="radioModel1" uib-btn-radio="'Existing Student : You have completed at least one semester'">Existing Student</label>
+            </div>
+            <h4>Choose your specialization</h4>
+            <pre>{{radioModel || 'null'}}</pre>
+            <div class="btn-group">
+                <label class="btn btn-warning btn-outline" ng-model="radioModel" uib-btn-radio="'General Program, a little of everything'" ng-disabled="true">General</label>
+                <label class="btn btn-info btn-outline" ng-model="radioModel" uib-btn-radio="'Web and Applications'">Web</label>
+                <label class="btn btn-danger btn-outline" ng-model="radioModel" uib-btn-radio="'Embedded Systems'" ng-disabled="true">Embedded</label>
+                <label class="btn btn-primary btn-outline" ng-model="radioModel" uib-btn-radio="'Gaming'" ng-disabled="true">Gaming</label>
+            </div>
+            <h4>Choose starting semester</h4>
+            <pre ng-model="semester">{{radioModel2 || 'null'}}</pre>
+            <div class="btn-group">
+                <label class="btn btn-danger btn-outline" ng-model="radioModel2" uib-btn-radio="'My next semester will be Fall'">Fall</label>
+                <label class="btn btn-info btn-outline" ng-model="radioModel2" uib-btn-radio="'My next semester will be Winter'">Winter</label>
+                <label class="btn btn-warning btn-outline" ng-model="radioModel2" uib-btn-radio="'My next semester will be Summer. NOTE: Only the first semester will be a summer semester unless the fast paced option below is chosen'">Summer</label>
+            </div>
+            <h4>Want to graduate faster?</h4>
+            <pre ng-model="semester">{{radioModel3 || 'null'}}</pre>
+            <div class="btn-group">
+                <label class="btn btn-info btn-outline" ng-model="radioModel3" uib-btn-radio="'Take my time at a nice and relaxed pace'">Relaxed</label>
+                <label class="btn btn-danger btn-outline" ng-model="radioModel3" uib-btn-radio="'Extra summer courses for quickest graduation ; recommended if falling behind the normal sequence'">Fast paced</label>
+            </div>
+            <input type="submit" class="btn btn-success btn-outline" style="display:block; margin-top:50px;" type="submit" value="Start Generating" />
+        </form>
+    </div>
+</div>
