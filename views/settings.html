@@ -1,0 +1,65 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <h1>Available Courses <span style="font-size:10px; color:red">Note: General Electives ID=  GENERAL , Basic science ID = SCIENCE, Writing test = ENCS 272, COMP 361 = ENGR 391</span></h1>
+        <table class=" table table-striped table-fixed">
+            <thead>
+                <tr>
+                    <th class="col-xs-2" ng-click="sortType='ID' ; sortReverse=! sortReverse ">ID</th>
+                    <th class="col-xs-6">Name</th>
+                    <th class="col-xs-2" ng-click="sortType='CREDIT' ; sortReverse=! sortReverse ">Credits</th>
+                    <th class="col-xs-2">
+                        <input type="text" ng-model="searchCourses" placeholder="Search courses.." />
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="animate-repeat" ng-repeat="course in courses | orderBy: sortType : sortReverse |filter:searchCourses ">
+                    <td class="col-xs-2">{{course.ID}}</td>
+                    <td class="col-xs-6">{{course.NAME}}</td>
+                    <td class="col-xs-2">{{course.CREDIT}}</td>
+                    <td class="col-xs-2">
+                        <button class='btn btn-success btn-table btn-outline' ng-click="addCourse(course) ">Add</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <h1>Your Completed Courses</h1>
+    <div class="col-md-12">
+        <h3>Total credits:  {{totalCredits}}</h3>
+        <table class=" table table-striped table-fixed ">
+            <thead>
+                <tr>
+                    <th class="col-xs-2">ID</th>
+                    <th class="col-xs-6">Name</th>
+                    <th class="col-xs-2">Credits</th>
+                    <th class="col-xs-2">
+                        <input type="text" ng-model="searchCourses2" placeholder="Search your list.." />
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="animate-repeat" ng-repeat="course in courseList | orderBy: sortType : sortReverse2 |filter:searchCourses2 ">
+                    <td class="col-xs-2">{{course.ID}}</td>
+                    <td class="col-xs-6">{{course.NAME}}</td>
+                    <td class="col-xs-2">{{course.CREDIT}}</td>
+                    <td class="col-xs-2">
+                        <button class='btn btn-danger btn-table  btn-outline' ng-click="deleteCourse(course) ">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <input type="button" value="Generate!" class="btn btn-primary btn-outline" ng-click="generate()"> {{verify()}}
+
+    </div>
+</div>
+<br />
+<br />
+<br />
